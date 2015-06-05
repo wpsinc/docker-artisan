@@ -18,14 +18,12 @@ RUN apt-get update && apt-get install -y \
     php5-redis \
     php5-sqlite
 
-RUN mkdir -p /var/www/html
-
 # Cleanup
 RUN apt-get clean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-VOLUME ["/var/www/html"]
+RUN mkdir -p /var/www/html
 
 WORKDIR /var/www/html
 
